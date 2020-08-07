@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    </head>
+    <title>Rock, paper, scissors</title>
+    <body>
+    </body>
+    <script>
+
+        console.log("My code is working. Let's play!")
+
+        let possibleMoves = [
+            "rock",
+            "paper",
+            "scissors"
+        ];
+
+
+        function playRound() {
+            let playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
+            
+
+            function computerPlay() {
+                return possibleMoves[Math.floor(Math.random()*possibleMoves.length)];
+            }
+
+            let computerSelection = computerPlay();
+
+            console.log ("The computer played " + computerSelection + ".");
+            console.log ("You played " + playerSelection + ".");
+
+            if (playerSelection == "rock") {
+                
+                    if (computerSelection == "rock") {
+                        return ("It's a tie.")
+                    } else if (computerSelection == "scissors") {
+                        return ("You win! Rock beats scissors.")
+                    } else if (computerSelection == "paper") {
+                        return ("You lose. Paper beats rock.")
+                    }
+
+            } else if (playerSelection == "paper") {
+            
+                    if (computerSelection == "rock") {
+                        return ("You win! Paper beats rock.")
+                    } else if (computerSelection == "scissors") {
+                        return ("You lose. Scissors beat rock.")
+                    } else if (computerSelection == "paper") {
+                        return ("It's a tie.")
+                    } 
+                
+            } else if (playerSelection == "scissors") {
+                
+                    if (computerSelection == "rock") {
+                        return ("You lose. Rock beats scissors.")
+                    }
+                    if (computerSelection == "scissors") {
+                        return ("It's a tie.")
+                    }
+                    if (computerSelection == "paper") {
+                        return ("You win! Scissors beats paper.")
+                    }  
+                
+            } else {
+                return ("You have not entered a valid move. Please try again.");
+            }
+
+        }
+
+    console.log(playRound())       
+
+
+
+    </script>
+</html>
+    </script>
+</html>
