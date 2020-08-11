@@ -16,15 +16,18 @@
             "scissors"
         ];
 
-
-        function playRound() {
-            let playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
-            
-
-            function computerPlay() {
+        function computerPlay() {
                 return possibleMoves[Math.floor(Math.random()*possibleMoves.length)];
             }
 
+            let roundStatus = "Oops. Round status not working.";
+
+        function playRound() {
+            
+            let gameMessage = "Oops. Something went wrong.";
+
+            let playerSelection = prompt("Rock, paper, or scissors?").toLowerCase().trim();
+            
             let computerSelection = computerPlay();
 
             console.log ("The computer played " + computerSelection + ".");
@@ -33,43 +36,114 @@
             if (playerSelection == "rock") {
                 
                     if (computerSelection == "rock") {
-                        return ("It's a tie.")
+                        gameMessage = "It's a tie.";
+                        roundStatus = "tie";
                     } else if (computerSelection == "scissors") {
-                        return ("You win! Rock beats scissors.")
+                        gameMessage = "You win! Rock beats scissors.";
+                        roundStatus="win";
                     } else if (computerSelection == "paper") {
-                        return ("You lose. Paper beats rock.")
+                        gameMessage = "You lose. Paper beats rock.";
+                        roundStatus = "lose";
                     }
 
             } else if (playerSelection == "paper") {
             
                     if (computerSelection == "rock") {
-                        return ("You win! Paper beats rock.")
+                        gameMessage = "You win! Paper beats rock.";
+                        roundStatus = "win";
                     } else if (computerSelection == "scissors") {
-                        return ("You lose. Scissors beat rock.")
+                        gameMessage = "You lose. Scissors beat rock.";
+                        roundStatus = "lose";
                     } else if (computerSelection == "paper") {
-                        return ("It's a tie.")
+                        gameMessage = "It's a tie.";
+                        roundStatus = "tie";
                     } 
                 
             } else if (playerSelection == "scissors") {
                 
                     if (computerSelection == "rock") {
-                        return ("You lose. Rock beats scissors.")
+                        gameMessage = "You lose. Rock beats scissors.";
+                        roundStatus = "lose";
                     }
                     if (computerSelection == "scissors") {
-                        return ("It's a tie.")
+                        gameMessage = "It's a tie.";
+                        roundStatus = "tie";
                     }
                     if (computerSelection == "paper") {
-                        return ("You win! Scissors beats paper.")
+                        gameMessage = "You win! Scissors beats paper.";
+                        roundStatus = "win";
                     }  
                 
             } else {
-                return ("You have not entered a valid move. Please try again.");
+                gameMessage = "You have not entered a valid move. Please try again.";
+                roundStatus = "invalid";
             }
+            console.log (gameMessage);
+            return roundStatus;
+        }
+    
+    let wins = 0; 
+    let losses = 0;
+    let ties = 0;
 
+    let winScore = "You've won 0 times.";
+    let loseScore = "You've lost 0 times.";
+    let tieScore = "You've tied 0 times.";
+
+    let errorMessage = "";
+
+    let roundStatusx;
+
+    function keepScore(roundStatusx) {
+        if (roundStatusx == "win") {
+            winScore = "You've won " + (++wins) + " times.";
+        } else if (roundStatusx == "lose") {
+            loseScore = "You've lost " + (++losses) + " times.";
+        } else if (roundStatusx == "tie") {
+            tieScore = "You've tied " + (++ties) + " times.";
+        } else {
+            errormessage = "There was an error.";
         }
 
-    console.log(playRound())       
+        console.log(winScore);
+        console.log(loseScore);
+        console.log(tieScore);
+        console.log(errorMessage);
+    }
 
+    let round1 = playRound();
+    let round2 = playRound();
+    let round3 = playRound();
+    let round4 = playRound();
+    let round5 = playRound();
+
+    function game() {
+        
+       console.log (round1);
+       console.log (round2);
+       console.log (round3);
+       console.log (round4);
+        console.log (round5);
+
+    }
+
+    game();
+
+    keepScore(round1);
+
+    keepScore(round2);
+
+    keepScore(round3);
+
+    keepScore(round4);
+
+    keepScore(round5);
+
+    
+
+    
+
+    
 
 
     </script>
